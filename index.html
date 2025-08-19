@@ -6,6 +6,25 @@
   <!-- أيقونات Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* تنسيق خاص للجوال */
+@media (max-width: 768px) {
+  .accordion {
+    width: 95%; /* أصغر شوية عشان يناسب شاشة الجوال */
+    font-size: 16px;
+  }
+
+  .accordion-btn {
+    font-size: 16px;
+    padding: 12px;
+    text-align: center; /* يخلي الزر في النص */
+  }
+
+  .accordion-content p {
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+  }
+}
     body {
       margin: 0;
       font-family: "Tajawal", sans-serif;
@@ -448,4 +467,5 @@ document.querySelectorAll(".accordion-btn").forEach(button => {
 });
 
   </script></body>
+
 </html>
