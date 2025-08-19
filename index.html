@@ -1,0 +1,451 @@
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- أيقونات Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Tajawal", sans-serif;
+      background: url('logo.png') no-repeat top right, url('logo.png') no-repeat bottom left;
+      background-size: 150px, 150px;
+      background-color: #f4f4f4;
+    }/* شريط علوي */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: orange ; /* رمادي */
+  border: 2px solid #006400;
+  border-radius: 12px;
+  padding: 10px 20px;
+  margin: 10px;
+}
+
+.top-bar img {
+  height: 70px;
+  margin-left: 30px;
+}
+
+#menu-toggle {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* القائمة الجانبية */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: #111;
+  color: white;
+  padding-top: 60px;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: white;
+}
+
+.side-menu a:hover {
+  background: orange;
+  color: black;
+}
+
+.side-menu .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.side-menu .close-btn:hover {
+  color: #006400;
+}
+
+/* اللوجو الكبير */
+.big-logo {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.big-logo img {
+  width: 500px;
+}
+
+/* مستطيل من نحن */
+.about {
+  background: orange; /* رمادي */
+  color: white;
+  border: 2px solid #006400;
+  border-radius: 12px;
+  padding: 5px 10px;
+  margin: 20px auto;
+  text-align: center;
+  cursor: pointer;
+  width: fit-content; /* صغير قد الكلمة */
+  font-size: 14px;
+}
+
+/* اللوجوه */
+.logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px 0 ;
+}
+
+.logos .item {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.logos img {
+  width: 80px;
+  display: block;
+  margin: auto;
+}
+
+/* النص قبل الشريط السفلي */
+.link-text {
+  text-align: center;
+  margin: 30px 0;
+}
+.trainees {
+  text-align: center;
+  margin-bottom: 15px; /* مسافة عن أيقونات التواصل */
+}
+
+.trainees .title {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.trainees .number {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
+.link-text a {
+  text-decoration: none;
+  color: blue;
+  font-weight: bold;
+}
+
+/* شريط سفلي */
+footer {
+  background: #808080; /* رمادي */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-top: 2px solid orange;
+  margin-top: 30px;
+}
+.logos .item {
+  text-align: center;
+  margin: 15px 0;
+  opacity: 0;           /* مخفية بالبداية */
+  animation: fadeIn 1s forwards; /* تشغيل التحريك */
+}
+
+/* نحدد تأخير لكل عنصر حسب ترتيبه */
+.logos .item:nth-child(1) { animation-delay: 0.2s; }
+.logos .item:nth-child(2) { animation-delay: 0.4s; }
+.logos .item:nth-child(3) { animation-delay: 0.6s; }
+.logos .item:nth-child(4) { animation-delay: 0.8s; }
+
+/* حركة الظهور */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+footer {
+  background: #808080;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-top: 2px solid #006400;
+  margin-top: 30px;
+}
+
+.trainees, .courses {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.trainees .title, .courses .title {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.trainees .number, .courses .number {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
+
+.social-icons a {
+  color: green;
+  margin: 0 10px;
+  font-size: 24px;
+  text-decoration: none;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: lime;
+}
+.social-icons a {
+  color: green;
+  margin: 0 10px;
+  font-size: 24px;
+  text-decoration: none;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: lime;
+}
+
+footer p {
+  margin: 8px 0;
+}
+.accordion {
+  width: 80%;
+  margin: 20px auto;
+  border: 2px solid #006400; /* حواف أخضر داكن */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-btn {
+  width: 100%;
+  background-color: orange; /* برتقالي */
+  color: white;
+  text-align: right;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.accordion-btn:hover {
+  background-color: darkorange;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #f1f1f1;
+  transition: max-height 0.4s ease-out;
+  padding: 0 15px;
+}
+
+.accordion-content p {
+  padding: 15px 0;
+  margin: 0;
+  color: #333;
+  line-height: 1.6;
+}
+  </style>
+</head>
+<body>  <!-- شريط علوي -->  <div class="top-bar">
+    <div class="images">
+      <img src="p3.png" alt="شعار">
+      <img src="p2.jpeg" alt="صورة">
+      <img src="p.png" alt="صورة">
+    </div>
+    <i id="menu-toggle" class="fas fa-bars"></i>
+  </div>  <!-- القائمة الجانبية -->  <div class="side-menu" id="side-menu">
+    <span class="close-btn" id="close-btn">&times;</span>
+    <a href="#">الرئيسية</a>
+    <a href="#">من نحن</a>
+    <a href="#">الدورات</a>
+    <a href="#">الخدمات</a>
+    <a href="#">تواصل</a>
+  </div>  <!-- اللوجو الكبير -->  <div class="big-logo">
+    <img src="p4.jpg" alt="اللوجو الكبير">
+  </div>  
+ 
+
+  </div>  <!-- ٤ لوجوه -->  <div class="logos">
+    <div class="item">
+      <img src="p6.jpg" alt="شعار1">
+      <p>الارشاد الصحي</p>
+    </div>
+    <div class="item">
+      <img src="p7.jpg" alt="شعار2">
+      <p>الارشاد القانوني</p>
+    </div>
+    <div class="item">
+      <img src="p8.jpg" alt="شعار3">
+      <p> بناء القدرات</p>
+    </div>
+    <div class="item">
+      <img src="p9.jpg" alt="شعار4">
+      <p>الدعم النفسي</p>
+    </div>
+    <div class="accordion">
+  <button class="accordion-btn"> من نحن </button>
+  <div class="accordion-content">
+    <p>
+      هذا مثال على النص الذي يظهر عند الضغط على الزر. 
+      يمكنك كتابة أي محتوى تريده هنا بشكل منسق ومرتب.
+    </p>
+  </div>
+</div>
+    <div class="accordion">
+  <button class="accordion-btn"> البرامج التدريبية</button>
+  <div class="accordion-content">
+    <p>
+      هذا مثال على النص الذي يظهر عند الضغط على الزر. 
+      يمكنك كتابة أي محتوى تريده هنا بشكل منسق ومرتب.
+    </p>
+  </div>
+</div>
+ <div class="accordion">
+  <button class="accordion-btn"> ميزات البرامج التدريبية</button>
+  <div class="accordion-content">
+    <p>
+      هذا مثال على النص الذي يظهر عند الضغط على الزر. 
+      يمكنك كتابة أي محتوى تريده هنا بشكل منسق ومرتب.
+    </p>
+  </div>
+</div>
+
+    
+  </div>  <!-- نص قبل الشريط السفلي -->  <div class="link-text">
+    <a href="https://example.com">عدن  - الشيخ عثمان - المدينة الراضية</a>
+  </div>  <!-- الشريط السفلي --> 
+  
+  <footer>
+  <!-- عدد المتدربين -->
+  <div class="trainees">
+    <p class="title">عدد المتدربين</p>
+    <p class="number" id="trainee-number">1200</p>
+  </div>
+
+  <!-- عدد الدورات -->
+  <div class="courses">
+    <p class="title">عدد الدورات</p>
+    <p class="number" id="course-number">0</p>
+  </div>
+
+  <!-- أيقونات التواصل الاجتماعي -->
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <a href="#"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <p>جميع الحقوق محفوظة © 2025</p>
+  <p>تصميم: Cyber Aden</p>
+</footer>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- JavaScript -->  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const sideMenu = document.getElementById("side-menu");
+    const closeBtn = document.getElementById("close-btn");
+
+    // فتح / إغلاق القائمة عند الضغط على الزر
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      sideMenu.classList.toggle("open");
+    });
+
+    // زر الإغلاق
+    closeBtn.addEventListener("click", () => {
+      sideMenu.classList.remove("open");
+    });
+
+    // إغلاق القائمة عند الضغط خارجها
+    document.addEventListener("click", (e) => {
+      if (sideMenu.classList.contains("open") && !sideMenu.contains(e.target) && e.target !== menuToggle) {
+        sideMenu.classList.remove("open");
+      }
+    });
+function animateNumber(id, target, duration) {
+  const element = document.getElementById(id);
+  let start = 0;
+  const increment = target / (duration / 20); // تحديث كل 20ms
+  const interval = setInterval(() => {
+    start += increment;
+    if (start >= target) {
+      start = target;
+      clearInterval(interval);
+    }
+    element.textContent = Math.floor(start);
+  }, 20);
+}
+function animateNumber(id, target, duration) {
+  const element = document.getElementById(id);
+  let start = 0;
+  const increment = target / (duration / 20); // تحديث كل 20ms
+  const interval = setInterval(() => {
+    start += increment;
+    if (start >= target) {
+      start = target;
+      clearInterval(interval);
+    }
+    element.textContent = Math.floor(start);
+  }, 20);
+}
+
+// تشغيل العد عند تحميل الصفحة
+window.addEventListener('load', () => {
+  animateNumber('course-number', 25, 4000);    // عدد الدورات يصل 25 خلال 4 ثواني
+  animateNumber('trainee-number', 1200, 4000); // عدد المتدربين يصل 1200 خلال 4 ثواني
+});
+document.querySelectorAll(".accordion-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    const content = button.nextElementSibling;
+
+    button.classList.toggle("active");
+
+    if (button.classList.contains("active")) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+      content.style.maxHeight = null;
+    }
+  });
+});
+
+  </script></body>
+</html>
